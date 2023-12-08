@@ -4,6 +4,7 @@ const container = document.querySelector('.container');
 const gridDimensions = document.querySelectorAll('.grid-dimensions');
 let gridElement;
 
+
 function createGrid(number) {
     for (let i = 0; i < number * number; i++) {
 
@@ -23,7 +24,7 @@ function createGrid(number) {
     }
 
      for (let i = 0; i < gridDimensions.length; i++) {
-        gridDimensions[i].textContent = `${16}`;
+        gridDimensions[i].textContent = `${number}`;
         
     } 
 
@@ -34,4 +35,29 @@ function createGrid(number) {
 
 }
 
+
 createGrid(16);
+
+// storing all the created divs in a NodeList
+const gridElements = document.querySelectorAll('.grid-element');
+
+function makeSketchEffect() {
+    gridElements.forEach(squareDiv => {
+        squareDiv.addEventListener('mousemove', function() {
+            squareDiv.style.backgroundColor = 'black';
+        })
+    });
+
+}
+
+makeSketchEffect();
+
+
+
+
+
+
+
+
+
+
