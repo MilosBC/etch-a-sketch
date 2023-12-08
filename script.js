@@ -4,14 +4,16 @@ const container = document.querySelector('.container');
 const gridDimensions = document.querySelectorAll('.grid-dimensions');
 let gridElement;
 
+const clearGrid = document.querySelector('.clear');
 
-function createGrid(number) {
-    for (let i = 0; i < number * number; i++) {
+
+function createGrid(num) {
+    for (let i = 0; i < num * num; i++) {
 
            gridElement = document.createElement('div');
             gridElement.classList.add('grid-element');
 
-            gridElement.style.width = `${900 / number}px`;
+            gridElement.style.width = `${900 / num}px`;
             
             
            
@@ -24,7 +26,7 @@ function createGrid(number) {
     }
 
      for (let i = 0; i < gridDimensions.length; i++) {
-        gridDimensions[i].textContent = `${number}`;
+        gridDimensions[i].textContent = `${num}`;
         
     } 
 
@@ -51,6 +53,16 @@ function makeSketchEffect() {
 }
 
 makeSketchEffect();
+
+//Clear all sketch effects
+
+clearGrid.addEventListener('click', function() {
+    for (let i = 0; i < gridElements.length; i++) {
+        gridElements[i].style.backgroundColor = 'white';
+    }
+})
+
+
 
 
 
