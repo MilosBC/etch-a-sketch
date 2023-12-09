@@ -8,6 +8,7 @@ let userInput;
 
 const clearGrid = document.querySelector('.clear');
 const newGrid = document.querySelector('.new');
+const randomColors = document.querySelector('.random-colors');
 
 
 function createGrid(num) {
@@ -15,21 +16,9 @@ function createGrid(num) {
         const gridElement = document.createElement('div');
             gridElement.classList.add('grid-element');
 
-            gridElement.style.width = `${900 / num}px`;
-
-            gridElement.addEventListener('mousemove', function() {
-                this.style.backgroundColor = 'black';
-            });
+            gridElement.style.width = `${900 / num}px`; 
             
-            
-           
-            
-            
-            container.appendChild(gridElement); 
-           
-            
-
-        
+            container.appendChild(gridElement);   
     }
 
      for (let i = 0; i < gridDimensions.length; i++) {
@@ -37,7 +26,8 @@ function createGrid(num) {
         
     } 
 
-    gridElements = document.querySelectorAll('.grid-element');
+    gridElements = document.querySelectorAll('.grid-element'); // a nodelist of all grid elements
+    makeSketchEffect();
 
 
 
@@ -49,19 +39,19 @@ function createGrid(num) {
 
 createGrid(16);
 
-// storing all the created divs in a NodeList
 
 
-/*function makeSketchEffect() {
+
+function makeSketchEffect() {
     gridElements.forEach(squareDiv => {
         squareDiv.addEventListener('mousemove', function() {
             squareDiv.style.backgroundColor = 'black';
         })
-    });
+    })
 
 }
 
-makeSketchEffect(); */
+
 
 //Clear all sketch effects
 
@@ -85,17 +75,34 @@ newGrid.addEventListener('click', function() {
 
     userInput = Number(prompt(`How many squares per side do you want in the new grid? (maximum allowed number is 100)`));
 
-    if (!userInput || userInput === 0 || userInput > 100) {
+    if (!userInput || userInput <= 0 || userInput > 100) {
         alert(`Please enter a valid input!`);
     } else {
         deleteGrid();
         createGrid(userInput);
-        //makeSketchEffect();
+       
         
     }
     
     
 })
+
+function generateRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 256);
+    return randomNumber;
+}
+
+randomColors.addEventListener('click', function() {
+    gridElements.forEach(squareDiv => {
+        squareDiv.addEventListener('mousemove', function() {
+            squareDiv.style.backgroundColor = `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
+        })
+    })
+}) 
+
+
+
+
 
 
 
