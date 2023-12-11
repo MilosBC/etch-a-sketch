@@ -2,6 +2,7 @@
 
 const container = document.querySelector('.container');
 const gridDimensions = document.querySelectorAll('.grid-dimensions');
+let gridElement;
 let gridElements;
 
 let userInput;
@@ -9,14 +10,21 @@ let userInput;
 const clearGrid = document.querySelector('.clear');
 const newGrid = document.querySelector('.new');
 const randomColors = document.querySelector('.random-colors');
+const eraser = document.querySelector('.eraser');
+
+ 
+
+
+
+
 
 
 function createGrid(num) {
     for (let i = 0; i < num * num; i++) {
-        const gridElement = document.createElement('div');
+         gridElement = document.createElement('div');
             gridElement.classList.add('grid-element');
 
-            gridElement.style.width = `${900 / num}px`; 
+            gridElement.style.width = `${480 / num}px`; 
             
             container.appendChild(gridElement);   
     }
@@ -44,7 +52,7 @@ createGrid(16);
 
 function makeSketchEffect() {
     gridElements.forEach(squareDiv => {
-        squareDiv.addEventListener('mousemove', function() {
+        squareDiv.addEventListener('mouseover', function() {
             squareDiv.style.backgroundColor = 'black';
         })
     })
@@ -94,11 +102,44 @@ function generateRandomNumber() {
 
 randomColors.addEventListener('click', function() {
     gridElements.forEach(squareDiv => {
-        squareDiv.addEventListener('mousemove', function() {
+        squareDiv.addEventListener('mouseover', function() {
             squareDiv.style.backgroundColor = `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
         })
     })
 }) 
+
+
+
+eraser.addEventListener('click', function() {
+
+    
+    gridElements.forEach(squareDiv => {
+        squareDiv.addEventListener('mouseover', function() {
+        
+        squareDiv.style.backgroundColor = 'white';
+ 
+         
+
+            
+       
+
+    
+          
+            
+           
+        })
+        
+        
+      
+    }) 
+
+
+
+
+
+  
+    
+})
 
 
 
