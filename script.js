@@ -12,6 +12,7 @@ const newGrid = document.querySelector('.new');
 const randomColors = document.querySelector('.random-colors');
 const defaultColor = document.querySelector('.default');
 const eraser = document.querySelector('.eraser');
+const toggleBorder = document.querySelector('.toggle-border');
 
  
 
@@ -139,6 +140,14 @@ defaultColor.addEventListener('click', function() {
     })  
     
 }) 
+
+toggleBorder.addEventListener('click', function() {
+
+    for (let i = 0; i < gridElements.length; i ++) {
+        gridElements[i].classList.toggle('hide-border');
+    }
+
+})
 
 
 
