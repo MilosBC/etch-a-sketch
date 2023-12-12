@@ -10,6 +10,7 @@ let userInput;
 const clearGrid = document.querySelector('.clear');
 const newGrid = document.querySelector('.new');
 const randomColors = document.querySelector('.random-colors');
+const defaultColor = document.querySelector('.default');
 const eraser = document.querySelector('.eraser');
 
  
@@ -116,30 +117,28 @@ eraser.addEventListener('click', function() {
     gridElements.forEach(squareDiv => {
         squareDiv.addEventListener('mouseover', function() {
         
-        squareDiv.style.backgroundColor = 'white';
- 
-         
-
-            
-       
-
-    
-          
-            
+        squareDiv.style.backgroundColor = 'white'; 
            
         })
         
         
       
-    }) 
-
-
-
-
-
-  
-    
+    })  
 })
+
+defaultColor.addEventListener('click', function() {
+    gridElements.forEach(squareDiv => {
+        squareDiv.addEventListener('mouseover', function() {
+        
+         squareDiv.style.backgroundColor = 'black';
+           
+        })
+        
+        
+      
+    })  
+    
+}) 
 
 
 
