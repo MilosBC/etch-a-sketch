@@ -41,8 +41,14 @@ createGrid(16);
 function setColor(color) {
     gridElements.forEach(squareDiv => {
         squareDiv.addEventListener('mouseover', function() {
+
+        if (color === 'white' || color === 'black') {
         
         squareDiv.style.backgroundColor = color; 
+
+    } else {
+        squareDiv.style.backgroundColor = `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
+    }
            
         })
         
@@ -91,11 +97,7 @@ function generateRandomNumber() {
 }
 
 randomColors.addEventListener('click', function() {
-    gridElements.forEach(squareDiv => {
-        squareDiv.addEventListener('mouseover', function() {
-            squareDiv.style.backgroundColor = `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
-        })
-    }) 
+   setColor('random'); //just a placeholder string value that is meant to trigger the "else" statement in the setColor function.
 
    
 
