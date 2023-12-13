@@ -14,12 +14,6 @@ const defaultColor = document.querySelector('.default');
 const eraser = document.querySelector('.eraser');
 const toggleBorder = document.querySelector('.toggle-border');
 
- 
-
-
-
-
-
 
 function createGrid(num) {
     for (let i = 0; i < num * num; i++) {
@@ -37,33 +31,27 @@ function createGrid(num) {
     } 
 
     gridElements = document.querySelectorAll('.grid-element'); // a nodelist of all grid elements
-    makeSketchEffect();
-
-
-
-
-
+    setColor('black');
 
 }
 
 
 createGrid(16);
 
-
-
-
-function makeSketchEffect() {
+function setColor(color) {
     gridElements.forEach(squareDiv => {
         squareDiv.addEventListener('mouseover', function() {
-            squareDiv.style.backgroundColor = 'black';
+        
+        squareDiv.style.backgroundColor = color; 
+           
         })
-    })
-
+        
+        
+      
+    })  
 }
 
 
-
-//Clear all sketch effects
 
 clearGrid.addEventListener('click', function() {
     for (let i = 0; i < gridElements.length; i++) {
@@ -71,7 +59,7 @@ clearGrid.addEventListener('click', function() {
     }
 })
 
-// a function that deletes the grid
+
 
 function deleteGrid() {
     for (let i = 0; i < gridElements.length; i++) {
@@ -107,37 +95,21 @@ randomColors.addEventListener('click', function() {
         squareDiv.addEventListener('mouseover', function() {
             squareDiv.style.backgroundColor = `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
         })
-    })
+    }) 
+
+   
+
+    
 }) 
-
-
 
 eraser.addEventListener('click', function() {
 
     
-    gridElements.forEach(squareDiv => {
-        squareDiv.addEventListener('mouseover', function() {
-        
-        squareDiv.style.backgroundColor = 'white'; 
-           
-        })
-        
-        
-      
-    })  
+  setColor('white');
 })
 
 defaultColor.addEventListener('click', function() {
-    gridElements.forEach(squareDiv => {
-        squareDiv.addEventListener('mouseover', function() {
-        
-         squareDiv.style.backgroundColor = 'black';
-           
-        })
-        
-        
-      
-    })  
+setColor('black');
     
 }) 
 
